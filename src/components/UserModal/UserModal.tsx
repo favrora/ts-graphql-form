@@ -22,6 +22,7 @@ const UserModal = ({ addUser }: Props): React.ReactElement => {
         <UserForm
           handleSubmit={(data) => {
             addUser(data)
+            console.log(data)
             close()
           }}
           onClose={close}

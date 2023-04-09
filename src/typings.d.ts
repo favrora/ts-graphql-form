@@ -11,4 +11,4 @@ declare module '*.json'
 
 declare const APP_NAME: string
 declare const API_HOST: string
-declare const API_AUTHORIZE_ULR: string
+declare const API_AUTHORIZE_URL: string

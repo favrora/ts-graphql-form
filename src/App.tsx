@@ -17,7 +17,7 @@ const App = (): React.ReactElement => {
         <UserModal addUser={(data) => setUsers((prev) => [...prev, data])} />
       </Grid>
 
-      <Grid item md={12} sm={12} className={styles.UsersTableBox}>
+      <Grid item md={12} sm={12} className={styles.usersTableBox}>
         <UsersTable users={users} />
       </Grid>
     </Grid>

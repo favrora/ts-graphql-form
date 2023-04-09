@@ -28,7 +28,7 @@ export const UserForm = ({ handleSubmit, onClose }: Props): React.ReactElement =
 
   return (
     <Grid container component={'form'} autoComplete={'off'} width={600} gap={2} onSubmit={onSubmit}>
-      <Grid container item md={12} gap={1} direction={'column'} className={styles.UserFormFieldsWrapper}>
+      <Grid container item md={12} gap={1} direction={'column'} className={styles.userFormFieldsWrapper}>
         <Typography variant="h6">Details</Typography>
 
         <CustomSelect<FormData>
@@ -85,7 +85,7 @@ export const UserForm = ({ handleSubmit, onClose }: Props): React.ReactElement =
         }
       </Grid>
 
-      <Grid item container md={12} gap={1} direction={'column'} className={styles.UserFormFieldsWrapper}>
+      <Grid item container md={12} gap={1} direction={'column'} className={styles.userFormFieldsWrapper}>
         <CustomAutocomplete<FormData>
           id={'relationToTheCompany'}
           label={'Relation to the Company'}

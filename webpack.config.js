@@ -20,7 +20,7 @@ const plugins = () => {
     new webpack.DefinePlugin({
       APP_NAME: "'Test task'",
       API_HOST: "'api'",
-      API_AUTHORIZE_ULR: "'http://152.228.215.94:81/auth/login'",
+      API_AUTHORIZE_URL: "'http://152.228.215.94:81/auth/login'",
     }),
     new HtmlWebpackPlugin({
       inject: true,
@@ -163,7 +163,7 @@ module.exports = (env, args) => {
           secure: false,
           changeOrigin: true,
           onProxyReq: (proxyReq) => {
-            console.log(proxyReq)
+            // console.log(proxyReq)
           },
         },
       },
