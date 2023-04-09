@@ -1,24 +1,24 @@
 import React, { useState } from 'react'
-import ClientsTable from './components/ClientsTable/Table/ClientsTable'
+import UsersTable from './components/UsersTable/Table/UsersTable'
 import { Grid } from '@mui/material'
-import ClientModal from './components/ClientModal/ClientModal'
-import { ClientModel } from './data/models/ClientModel'
+import UserModal from './components/UserModal/UserModal'
+import { UserModel } from './data/models/UserModel'
 import { useAuthorization } from './hooks/useAuthorization'
-import styles from './components/ClientsTable/Table/ClientsTable.scss'
+import styles from './components/UsersTable/Table/UsersTable.scss'
 
 const App = (): React.ReactElement => {
-  const [clients, setClients] = useState<ClientModel[]>([])
+  const [users, setUsers] = useState<UserModel[]>([])
 
   useAuthorization()
 
   return (
     <Grid container spacing={2}>
       <Grid item md={12} sm={12} sx={{ mb: 5, textAlign: 'center' }}>
-        <ClientModal addClient={(data) => setClients((prev) => [...prev, data])} />
+        <UserModal addUser={(data) => setUsers((prev) => [...prev, data])} />
       </Grid>
 
-      <Grid item md={12} sm={12} className={styles.clientsTableBox}>
-        <ClientsTable clients={clients} />
+      <Grid item md={12} sm={12} className={styles.UsersTableBox}>
+        <UsersTable users={users} />
       </Grid>
     </Grid>
   )

@@ -1,10 +1,10 @@
-import { ClientEntity } from '../enums/ClientEntity'
+import { UserEntity } from '../enums/UserEntity'
 
-export type ClientModel = {
+export type UserModel = {
   id: string
   className?: string
-  clientId: number | string
-  entity: ClientEntity
+  userId: number | string
+  entity: UserEntity
   firstName?: string
   lastName?: string
   companyName?: string

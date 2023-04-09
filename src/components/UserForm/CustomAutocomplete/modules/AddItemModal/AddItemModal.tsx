@@ -1,6 +1,6 @@
 import React from 'react'
 import CustomModal from '@/components/CustomModal/CustomModal'
-import CustomTextField from '@/components/ClientForm/CustomTextField/CustomTextField'
+import CustomTextField from '@/components/UserForm/CustomTextField/CustomTextField'
 import { Button } from '@mui/material'
 import { FormData, useAddItemModalForm } from './hooks/useAddItemModalForm'
 import styles from './AddItemModal.scss'

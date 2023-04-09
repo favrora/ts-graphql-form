@@ -1,13 +1,13 @@
-import { ClientModel } from '@/data/models/ClientModel'
+import { UserModel } from '@/data/models/UserModel'
 import { ColumnType } from '@/data/types/ColumnType'
 import { useMemo } from 'react'
 
-export const useClientsTableColumns = () => {
-  return useMemo((): ColumnType<ClientModel>[] => {
+export const useUsersTableColumns = () => {
+  return useMemo((): ColumnType<UserModel>[] => {
     return [
       {
-        key: 'clientId',
-        name: 'Client ID',
+        key: 'userId',
+        name: 'User ID',
       },
       {
         key: 'entity',

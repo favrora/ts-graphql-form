@@ -1,15 +1,15 @@
 import React from 'react'
 import { Button } from '@mui/material'
-import { ClientForm } from '../ClientForm/Form/ClientForm'
+import { UserForm } from '../UserForm/Form/UserForm'
 import { useModal } from '@/hooks/useModal'
-import { ClientModel } from '@/data/models/ClientModel'
+import { UserModel } from '@/data/models/UserModel'
 import CustomModal from '../CustomModal/CustomModal'
 
 type Props = {
-  addClient: (data: ClientModel) => void
+  addUser: (data: UserModel) => void
 }
 
-const ClientModal = ({ addClient }: Props): React.ReactElement => {
+const UserModal = ({ addUser }: Props): React.ReactElement => {
   const { isOpen, open, close } = useModal()
 
   return (
@@ -19,9 +19,9 @@ const ClientModal = ({ addClient }: Props): React.ReactElement => {
       </Button>
 
       <CustomModal isOpen={isOpen} title={'Add'} close={close}>
-        <ClientForm
+        <UserForm
           handleSubmit={(data) => {
-            addClient(data)
+            addUser(data)
             close()
           }}
           onClose={close}
@@ -31,4 +31,4 @@ const ClientModal = ({ addClient }: Props): React.ReactElement => {
   )
 }
 
-export default React.memo(ClientModal)
+export default React.memo(UserModal)

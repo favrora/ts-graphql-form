@@ -1,57 +1,57 @@
 import React from 'react'
 import { Button, Grid, Typography } from '@mui/material'
-import { useClientEntityOptions } from '@/hooks/options/useClientEntityOptions'
-import { ClientEntity } from '@/data/enums/ClientEntity'
+import { useUserEntityOptions } from '@/hooks/options/useUserEntityOptions'
+import { UserEntity } from '@/data/enums/UserEntity'
 import CustomTextField from '../CustomTextField/CustomTextField'
 import CustomSelect from '../CustomSelect/CustomSelect'
-import { ClientModel } from '@/data/models/ClientModel'
+import { UserModel } from '@/data/models/UserModel'
 import CustomAutocomplete from '../CustomAutocomplete/CustomAutocomplete'
-import { FormData, useClientForm } from './hooks/useClientForm'
-import { useClientIdOptions } from '@/hooks/options/useClientIdOptions'
+import { FormData, useUserForm } from './hooks/useUserForm'
+import { useUserIdOptions } from '@/hooks/options/useUserIdOptions'
 import { useCompanyRelationAction } from '@/api/Actions/useCompanyRelationAction'
 import { useCompanyPositionAction } from '@/api/Actions/useCompanyPositionAction'
-import styles from './ClientForm.scss'
+import styles from './UserForm.scss'
 
 type Props = {
-  handleSubmit: (data: ClientModel) => void
+  handleSubmit: (data: UserModel) => void
   onClose: () => void
 }
 
-export const ClientForm = ({ handleSubmit, onClose }: Props): React.ReactElement => {
-  const { formData, formErrors, onChange, onSubmit } = useClientForm(handleSubmit)
+export const UserForm = ({ handleSubmit, onClose }: Props): React.ReactElement => {
+  const { formData, formErrors, onChange, onSubmit } = useUserForm(handleSubmit)
 
-  const clientIds = useClientIdOptions()
-  const clientEntities = useClientEntityOptions()
+  const userIds = useUserIdOptions()
+  const userEntities = useUserEntityOptions()
 
   const companyRelationAction = useCompanyRelationAction()
   const companyPositionAction = useCompanyPositionAction()
 
   return (
     <Grid container component={'form'} autoComplete={'off'} width={600} gap={2} onSubmit={onSubmit}>
-      <Grid container item md={12} gap={1} direction={'column'} className={styles.clientFormFieldsWrapper}>
+      <Grid container item md={12} gap={1} direction={'column'} className={styles.UserFormFieldsWrapper}>
         <Typography variant="h6">Details</Typography>
 
         <CustomSelect<FormData>
           id={'entity'}
           label={'Entity'}
-          options={clientEntities}
+          options={userEntities}
           value={formData.entity}
           onChange={onChange}
           errors={formErrors}
         />
 
         <CustomAutocomplete<FormData>
-          id={'clientId'}
-          label={'Client ID'}
-          value={formData.clientId}
+          id={'userId'}
+          label={'user ID'}
+          value={formData.userId}
           onChange={onChange}
-          options={clientIds}
+          options={userIds}
           errors={formErrors}
         />
 
         {
           {
-            [ClientEntity.Individual]: (
+            [UserEntity.Individual]: (
               <>
                 <CustomTextField<FormData>
                   id={'firstName'}
@@ -70,7 +70,7 @@ export const ClientForm = ({ handleSubmit, onClose }: Props): React.ReactElement
                 />
               </>
             ),
-            [ClientEntity.Company]: (
+            [UserEntity.Company]: (
               <>
                 <CustomTextField<FormData>
                   id={'companyName'}
@@ -85,7 +85,7 @@ export const ClientForm = ({ handleSubmit, onClose }: Props): React.ReactElement
         }
       </Grid>
 
-      <Grid item container md={12} gap={1} direction={'column'} className={styles.clientFormFieldsWrapper}>
+      <Grid item container md={12} gap={1} direction={'column'} className={styles.UserFormFieldsWrapper}>
         <CustomAutocomplete<FormData>
           id={'relationToTheCompany'}
           label={'Relation to the Company'}

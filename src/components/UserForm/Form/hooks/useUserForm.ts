@@ -1,36 +1,36 @@
-import { ClientEntity } from '@/data/enums/ClientEntity'
-import { ClientModel } from '@/data/models/ClientModel'
+import { UserEntity } from '@/data/enums/UserEntity'
+import { UserModel } from '@/data/models/UserModel'
 import { useForm } from '@/hooks/useForm'
 import { useId } from 'react'
 import * as yup from 'yup'
 
-export type FormData = ClientModel
+export type FormData = UserModel
 
-export const useClientForm = (handleSubmit: (data: FormData) => void) => {
+export const useUserForm = (handleSubmit: (data: FormData) => void) => {
   const id = useId()
 
   const { formData, formErrors, onChange, onSubmit } = useForm<FormData>(
     {
       id: id,
-      clientId: '',
-      entity: ClientEntity.Individual,
+      userId: '',
+      entity: UserEntity.Individual,
       relationToTheCompany: '',
       positionInTheCompany: '',
     },
     handleSubmit,
     {
-      clientId: yup.number().required(),
+      userId: yup.number().required(),
       entity: yup.string().required(),
       firstName: yup.string().when('entity', {
-        is: ClientEntity.Individual,
+        is: UserEntity.Individual,
         then: yup.string().required(),
       }),
       lastName: yup.string().when('entity', {
-        is: ClientEntity.Individual,
+        is: UserEntity.Individual,
         then: yup.string().required(),
       }),
       companyName: yup.string().when('entity', {
-        is: ClientEntity.Company,
+        is: UserEntity.Company,
         then: yup.string().required(),
       }),
       relationToTheCompany: yup.string().required(),

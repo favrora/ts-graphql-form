@@ -1,4 +1,4 @@
-export enum ClientEntity {
+export enum UserEntity {
   Individual = 'Individual',
   Company = 'Company',
 }
